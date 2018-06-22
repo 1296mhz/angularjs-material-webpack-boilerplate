@@ -10,19 +10,24 @@ import '../style/app.css';
 import HomeModule from './components/home/home.module';
 import app from './app.directive.js';
 import AppCtrl from './app.controller.js';
-
 const MODULE_NAME = 'app';
 AppCtrl.$inject = ['$mdSidenav'];
 
 angular.module(MODULE_NAME, ['ui.router', 'ngMaterial', 'ngMessages', 'ngAnimate', 'ngAria', 'HomeModule'])
   .directive('app', app)
   .controller('AppCtrl', AppCtrl)
-  .config(($stateProvider) => {
+  .config(($stateProvider, $urlRouterProvider, $mdIconProvider) => {
+
+    $urlRouterProvider.otherwise('/');
+    // $mdIconProvider
+    // .defaultFontSet('fa')
+    // .defaultIconSet("./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.svg", 128)
+
 
     let rootState = {
       name: 'root',
       url: '/',
-      template: '<a>root</a>'
+      template: require('./components/app/app.component.html')
     }
 
     let homeState = {

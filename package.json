@@ -27,7 +27,8 @@
     "angular-material": "^1.1.9",
     "angular-messages": "^1.7.2",
     "angular-route": "^1.7.2",
-    "material-design-icons": "^3.0.1"
+    "material-design-icons": "^3.0.1",
+    "roboto-fontface": "^0.9.0"
   },
   "devDependencies": {
     "ajv": "^6.4.0",
@@ -58,6 +59,7 @@
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.1",
     "style-loader": "^0.21.0",
+    "svg-url-loader": "^2.3.2",
     "webpack": "^2.7.0",
     "webpack-dev-server": "^2.11.2"
   }

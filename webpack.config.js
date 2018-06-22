@@ -7,6 +7,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var AngularjsTemplateLoader = require('angularjs-template-loader');
+var SvgUrlLoader = require('svg-url-loader');
 /**
  * Env
  * Get npm lifecycle event to identify the environment
@@ -105,8 +106,8 @@ module.exports = function makeWebpackConfig() {
       loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: [
-          {loader: 'css-loader', query: {sourceMap: true}},
-          {loader: 'postcss-loader'}
+          { loader: 'css-loader', query: { sourceMap: true } },
+          { loader: 'postcss-loader' }
         ],
       })
     }, {
@@ -129,8 +130,10 @@ module.exports = function makeWebpackConfig() {
       options: {
         relativeTo: './src/app'
       }
+    }, {
+      test: /\.svg$/, loader: 'svg-url-loader'
     }
-  ]
+    ]
   };
 
   // ISTANBUL LOADER
@@ -157,8 +160,8 @@ module.exports = function makeWebpackConfig() {
    * Reference: https://github.com/postcss/autoprefixer-core
    * Add vendor prefixes to your css
    */
-   // NOTE: This is now handled in the `postcss.config.js`
-   //       webpack2 has some issues, making the config file necessary
+  // NOTE: This is now handled in the `postcss.config.js`
+  //       webpack2 has some issues, making the config file necessary
 
   /**
    * Plugins
@@ -189,7 +192,7 @@ module.exports = function makeWebpackConfig() {
       // Reference: https://github.com/webpack/extract-text-webpack-plugin
       // Extract css files
       // Disabled when in test mode or not in build mode
-      new ExtractTextPlugin({filename: 'css/[name].css', disable: !isProd, allChunks: true})
+      new ExtractTextPlugin({ filename: 'css/[name].css', disable: !isProd, allChunks: true })
     )
   }
 

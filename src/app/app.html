@@ -15,48 +15,23 @@
     <md-toolbar class="md-theme-indigo">
       <div class="md-toolbar-tools">
         <md-button class="md-icon-button" aria-label="Settings" ng-disabled="false" ng-click="app.toggleLeft()">
-          <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-          <md-icon class="material-icons md-light md-48"> face </md-icon>
-        <md-icon>android</md-icon>
+          <!-- <md-icon md-svg-icon="img/icons/menu.svg"></md-icon> -->
+          <md-icon>menu</md-icon>
         </md-button>
-
       </div>
     </md-toolbar>
-
     <md-content layout-margin>
-      <md-content>
-        <ul>
-          <li>
-            <a ui-sref="root" ui-sref-active="active">Root</a>
-          </li>
-          <li>
-            <a ui-sref="home" ui-sref-active="active">Home</a>
-          </li>
-          <li>
-            <a ui-sref="about" ui-sref-active="active">About</a>
-          </li>
-        </ul>
-        <md-list flex>
-        </md-list>
-      </md-content>
-
-
-      <md-divider></md-divider>
-
-      <md-list flex>
-  
-
-        <md-button class="md-fab">
-          <md-icon md-font-set="material-icons">delete</md-icon>
-        </md-button>
-
-      </md-list>
-
+        <md-menu-content width="3">
+          <md-menu-item ng-repeat="item in app.links">
+            <md-button ui-sref="{{ item.uisref }}" ui-sref-active="active">
+              <span md-menu-align-target>
+                <md-icon ng-bind="item.icon"></md-icon>
+              </span> {{item.uisref}} </md-button>
+          </md-menu-item>
+        </md-menu-content>
     </md-content>
   </md-sidenav>
   <md-content flex layout-padding>
-
     <ui-view></ui-view>
-
   </md-content>
 </section>

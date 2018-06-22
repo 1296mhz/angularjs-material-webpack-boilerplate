@@ -7,20 +7,19 @@ class AppCtrl {
         this.links = [
             {
                 "uisref": "root",
-                "icon": "icon-home"
+                "icon": "favorite"
 
             },
             {
                 "uisref": "home",
-                "icon": "icon-home"
+                "icon": "home"
 
             },
             {
                 "uisref": "about",
-                "icon": "icon-home"
+                "icon": "account_box"
             }
         ];
-
 
     }
 

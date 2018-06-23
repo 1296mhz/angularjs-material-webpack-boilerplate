@@ -1,0 +1,13 @@
+<md-card md-colors="::{backgroundColor: '{{theme}}-primary-700'}">
+  <md-card-title>
+    <md-card-title-media>
+      <div class="md-media-sm card-media" layout md-colors="::{background: '{{theme}}-accent'}">
+        <img ng-src="img/images/cat.jpeg" class="md-avatar" alt="" />
+      </div>
+    </md-card-title-media>
+    <md-card-title-text>
+      <span class="md-headline">{{ $ctrl.userProfile.username }}</span>
+      <span class="md-subhead description">{{ $ctrl.userProfile.role }}</span>
+    </md-card-title-text>
+  </md-card-title>
+</md-card>

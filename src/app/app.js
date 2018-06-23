@@ -8,26 +8,35 @@ import ngAria from 'angular-aria';
 import '../../node_modules/angular-material/angular-material.css';
 import '../style/app.css';
 import HomeModule from './components/home/home.module';
-import app from './app.directive.js';
-import AppCtrl from './app.controller.js';
+import app from './components/app/app.directive';
+import AppCtrl from './components/app/app.controller';
+import userCard from './components/userCard/userCard.component';
 const MODULE_NAME = 'app';
+
 AppCtrl.$inject = ['$mdSidenav'];
 
-angular.module(MODULE_NAME, ['ui.router', 'ngMaterial', 'ngMessages', 'ngAnimate', 'ngAria', 'HomeModule'])
+const deps = ['ui.router', 'ngMaterial', 'ngMessages', 'ngAnimate', 'ngAria', 'HomeModule']
+
+angular.module(MODULE_NAME, deps)
   .directive('app', app)
+  .directive('userCard', userCard)
   .controller('AppCtrl', AppCtrl)
-  .config(($stateProvider, $urlRouterProvider, $mdIconProvider) => {
+  .config((
+    $stateProvider,
+    $urlRouterProvider,
+    $mdThemingProvider,
+    $mdIconProvider) => {
 
     $urlRouterProvider.otherwise('/');
-    // $mdIconProvider
-    // .defaultFontSet('fa')
-    // .defaultIconSet("./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.svg", 128)
-
+  
+    $mdThemingProvider.theme('indigo')
+      .primaryPalette('brown')
+      .accentPalette('green');
 
     let rootState = {
       name: 'root',
       url: '/',
-      template: require('./components/app/app.component.html')
+      template: require('./components/root/root.component.html')
     }
 
     let homeState = {
@@ -46,6 +55,6 @@ angular.module(MODULE_NAME, ['ui.router', 'ngMaterial', 'ngMessages', 'ngAnimate
     $stateProvider.state(homeState);
     $stateProvider.state(aboutState);
 
-  })
+  });
 
 export default MODULE_NAME;

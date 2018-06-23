@@ -4,6 +4,11 @@ class AppCtrl {
         this.title = 'AngularJS Material webpack boilerplate';
         this.toggleLeft = this.buildToggler('left');
 
+        this.userProfile = {
+            username: "AngularUser",
+            role: "Administrator"
+        }
+        
         this.links = [
             {
                 "uisref": "root",
@@ -20,7 +25,6 @@ class AppCtrl {
                 "icon": "account_box"
             }
         ];
-
     }
 
     buildToggler(componentId) {

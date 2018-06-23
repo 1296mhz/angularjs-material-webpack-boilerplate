@@ -7,19 +7,20 @@ import ngAria from 'angular-aria';
 
 import '../../node_modules/angular-material/angular-material.css';
 import '../style/app.css';
-import HomeModule from './components/home/home.module';
 import app from './components/app/app.directive';
 import AppCtrl from './components/app/app.controller';
-import userCard from './components/userCard/userCard.component';
+
+import HomeModule from './components/home/home.module';
+import UserCardModule from './components/userCard/userCard.module';
+
 const MODULE_NAME = 'app';
 
 AppCtrl.$inject = ['$mdSidenav'];
 
-const deps = ['ui.router', 'ngMaterial', 'ngMessages', 'ngAnimate', 'ngAria', 'HomeModule']
+const deps = ['ui.router', 'ngMaterial', 'ngMessages', 'ngAnimate', 'ngAria', 'HomeModule', 'UserCardModule']
 
 angular.module(MODULE_NAME, deps)
   .directive('app', app)
-  .directive('userCard', userCard)
   .controller('AppCtrl', AppCtrl)
   .config((
     $stateProvider,

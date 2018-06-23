@@ -1,13 +1,16 @@
-<md-card md-colors="::{backgroundColor: '{{theme}}-primary-700'}">
-  <md-card-title>
-    <md-card-title-media>
-      <div class="md-media-sm card-media" layout md-colors="::{background: '{{theme}}-accent'}">
-        <img ng-src="img/images/cat.jpeg" class="md-avatar" alt="" />
-      </div>
-    </md-card-title-media>
-    <md-card-title-text>
-      <span class="md-headline">{{ $ctrl.userProfile.username }}</span>
-      <span class="md-subhead description">{{ $ctrl.userProfile.role }}</span>
-    </md-card-title-text>
-  </md-card-title>
-</md-card>
+<section>
+    <md-subheader>
+        <md-list layout="column" layout-padding>
+            <md-list-item class="md-3-line">
+              <img ng-src="./img/images/cat.jpeg" class="md-avatar" alt="котэ">
+              <div class="md-list-item-text">
+                <h3>Username</h3>
+                <h4>Role</h4>
+                <p>
+                  Любит вкусняшки
+                </p>
+              </div>
+            </md-list-item>
+          </md-list>
+    </md-subheader>
+  </section>

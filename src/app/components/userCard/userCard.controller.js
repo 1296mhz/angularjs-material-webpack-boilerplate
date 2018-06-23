@@ -1,3 +1,4 @@
+/*
 import angular from 'angular';
 import MODULE_NAME from '../../app';
 
@@ -17,3 +18,4 @@ class UserCardCtrl {
 }
 
 export default UserCardCtrl;
+*/
